@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07134a">
+<meta name="description" content="A little Janmashtami surprise for Jasuu Masii">
+<title>For Jasuu Masii 🦚 | Janmashtami</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --night:#050b2e; --blue:#0c1d63; --gold:#ffd978; --cream:#fff7df;
+  --pink:#f6a6c8; --glass:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--night); color:#fff; font-family:Poppins,sans-serif;
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+button{font:inherit}
+#stars,#petals,#feathers{position:fixed;inset:0;pointer-events:none;z-index:3}
+#stars{background-image:
+ radial-gradient(circle at 10% 20%,#fff 0 1px,transparent 2px),
+ radial-gradient(circle at 80% 12%,#fff 0 1px,transparent 2px),
+ radial-gradient(circle at 35% 70%,#fff 0 1px,transparent 2px),
+ radial-gradient(circle at 65% 40%,#fff 0 1px,transparent 2px),
+ radial-gradient(circle at 90% 80%,#fff 0 1px,transparent 2px);
+ background-size:180px 160px,240px 210px,220px 200px,260px 240px,190px 180px;
+ opacity:.55; animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.9}}
+.moon{
+ position:absolute; width:145px;height:145px;border-radius:50%; right:8%;top:9%;
+ background:#fff4bd; box-shadow:0 0 55px rgba(255,239,159,.5);
+}
+.moon:after{content:"";position:absolute;width:145px;height:145px;border-radius:50%;
+ background:var(--night);left:-28px;top:-14px}
+#petals span,#feathers span{position:absolute;top:-60px;animation:fall linear forwards}
+#petals span{font-size:22px}
+#feathers span{font-size:28px}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(540deg);opacity:.05}}
+
+#intro{
+ position:fixed;inset:0;z-index:20;display:grid;place-items:center;text-align:center;
+ background:radial-gradient(circle at 50% 35%,#162b78 0,#080e3a 42%,#030620 100%);
+ transition:opacity 1s,visibility 1s;
+}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-content{padding:25px;max-width:720px;animation:rise 1.3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.peacock{font-size:58px;filter:drop-shadow(0 0 16px rgba(255,217,120,.45));animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
+.kicker{letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-size:12px;margin:20px 0}
+h1,h2,.script{font-family:"Cormorant Garamond",serif}
+#intro h1{font-size:clamp(44px,9vw,88px);line-height:.9}
+#intro h1 span{display:block;color:var(--gold)}
+.sub{margin:20px auto 30px;line-height:1.8;color:#e6e9ff;max-width:560px}
+.cta{
+ border:1px solid rgba(255,217,120,.65); background:linear-gradient(135deg,#d89c32,#ffd978);
+ color:#241400; padding:14px 26px;border-radius:999px;cursor:pointer;font-weight:700;
+ box-shadow:0 10px 35px rgba(255,200,80,.2); transition:.25s;
+}
+.cta:hover{transform:translateY(-3px);box-shadow:0 14px 45px rgba(255,200,80,.35)}
+.small-note{font-size:11px;opacity:.6;margin-top:16px}
+
+section{position:relative;min-height:100vh;padding:100px 20px;display:grid;place-items:center;overflow:hidden}
+.container{width:min(1100px,100%);position:relative;z-index:5}
+.hero{
+ min-height:100vh;text-align:center;
+ background:radial-gradient(circle at 50% 65%,rgba(51,82,190,.32),transparent 45%);
+}
+.hero h2{font-size:clamp(48px,10vw,100px);line-height:.9}
+.hero h2 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:700px;margin:24px auto;color:#dfe4ff;line-height:1.9}
+.scroll{margin-top:50px;opacity:.7;font-size:12px;letter-spacing:3px}
+.down{font-size:25px;animation:bounce 1.5s infinite}
+@keyframes bounce{50%{transform:translateY(7px)}}
+
+.title{text-align:center;margin-bottom:55px}
+.title .ornament{color:var(--gold);font-size:28px}
+.title h2{font-size:clamp(42px,7vw,68px)}
+.title p{color:#bdc7f4;margin:8px auto;max-width:650px;line-height:1.7}
+
+.glass{
+ background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+ border:1px solid rgba(255,255,255,.13); backdrop-filter:blur(14px);
+ border-radius:28px; box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+.message{
+ max-width:850px;margin:auto;padding:48px 34px;text-align:center;line-height:2;
+}
+.message .big{font-family:"Cormorant Garamond";font-size:32px;color:var(--cream)}
+.message strong{color:var(--gold)}
+
+.gallery{
+ display:grid;grid-template-columns:repeat(12,1fr);gap:16px;
+}
+.photo{
+ margin:0;overflow:hidden;border-radius:22px;position:relative;
+ border:1px solid rgba(255,255,255,.12);background:#101842;
+ opacity:0;transform:translateY(35px) scale(.97);transition:opacity .8s,transform .8s;
+}
+.photo.visible{opacity:1;transform:none}
+.photo:nth-child(1),.photo:nth-child(6){grid-column:span 7}
+.photo:nth-child(2),.photo:nth-child(3),.photo:nth-child(4),.photo:nth-child(5){grid-column:span 5}
+.photo:nth-child(7),.photo:nth-child(8),.photo:nth-child(9),.photo:nth-child(10){grid-column:span 6}
+.photo img{display:block;width:100%;height:420px;object-fit:cover;transition:transform .7s}
+.photo:hover img{transform:scale(1.05)}
+.photo figcaption{
+ position:absolute;left:15px;right:15px;bottom:15px;padding:10px 14px;border-radius:14px;
+ background:rgba(4,8,30,.58);backdrop-filter:blur(8px);font-size:12px;
+}
+
+.wish-wrap{text-align:center}
+.wish-box{max-width:720px;margin:auto;padding:36px}
+.wish-input{
+ width:100%;min-height:120px;border:1px solid rgba(255,255,255,.15);border-radius:18px;
+ background:rgba(0,0,0,.18);color:#fff;padding:18px;resize:vertical;outline:none;
+ font-family:Poppins;font-size:15px;
+}
+.wish-input:focus{border-color:var(--gold)}
+.wish-result{display:none;margin-top:25px;padding:25px;border-radius:20px;background:rgba(255,217,120,.1);color:#fff3c5;line-height:1.8}
+.wish-result.show{display:block;animation:rise .8s ease}
+
+.blessing{
+ background:radial-gradient(circle at 50% 40%,#203c91 0,transparent 45%),#060a2b;
+ text-align:center;
+}
+.blessing-card{max-width:850px;padding:50px 30px;margin:auto}
+.blessing h2{font-size:clamp(50px,9vw,85px);color:var(--gold);line-height:.9}
+.blessing p{font-family:"Cormorant Garamond";font-size:26px;line-height:1.65;margin:28px auto;max-width:720px;color:#fff5dc}
+.footer{text-align:center;padding:45px 20px;background:#03051a;color:#8f9ad0;font-size:12px}
+.footer b{color:var(--gold)}
+
+.music{
+ position:fixed;right:18px;bottom:18px;z-index:10;width:52px;height:52px;border-radius:50%;
+ border:1px solid rgba(255,217,120,.5);background:rgba(8,15,60,.82);color:var(--gold);
+ cursor:pointer;backdrop-filter:blur(8px);font-size:20px;
+}
+.reveal-btn{margin-top:18px}
+#toast{position:fixed;left:50%;bottom:85px;transform:translateX(-50%);
+ background:#fff5cf;color:#201500;padding:10px 18px;border-radius:999px;font-size:12px;
+ opacity:0;pointer-events:none;transition:.3s;z-index:30}
+#toast.show{opacity:1}
+
+@media(max-width:700px){
+ .moon{width:95px;height:95px;top:7%;right:4%}.moon:after{width:95px;height:95px;left:-18px}
+ section{padding:80px 15px}
+ .photo:nth-child(n){grid-column:span 12}
+ .photo img{height:430px}
+ .message{padding:35px 22px}
+ .message .big{font-size:27px}
+}
+@media(prefers-reduced-motion:reduce){
+ *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body class="locked">
+
+<div id="stars"></div><div id="petals"></div><div id="feathers"></div>
+
+<div id="intro">
+  <div class="moon"></div>
+  <div class="intro-content">
+    <div class="peacock">🦚</div>
+    <div class="kicker">A little Janmashtami surprise</div>
+    <h1>For my <span>Jasuu Masii</span></h1>
+    <p class="sub">Tonight, beneath the same moon that once watched over Gokul, a tiny surprise has been made especially for you. 💙</p>
+    <button class="cta" id="openBtn">Open Your Surprise ✨</button>
+    <div class="small-note">Turn your volume up for the divine ambience 🎶</div>
+  </div>
+</div>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <div class="kicker">श्री कृष्ण जन्माष्टमी</div>
+  <h2>Jai <em>Shree Krishna</em> 🪈</h2>
+  <p>
+   On this beautiful Janmashtami, may Kanha bring a little more peace to your heart,
+   a little more sparkle to your smile, and countless reasons to be happy.
+  </p>
+  <div class="scroll">SCROLL INTO THE SURPRISE<br><span class="down">↓</span></div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div class="title">
+   <div class="ornament">🪔 ✦ 🪷 ✦ 🪔</div>
+   <h2>A message for Jasuu Masii</h2>
+   <p>Not every bond needs a reason. Some people simply make life warmer.</p>
+  </div>
+  <div class="glass message">
+   <p class="big">
+    “In the celebration of Kanha's birth, I wanted to celebrate someone
+    who is very special to me too.”
+   </p>
+   <br>
+   <p>
+    <strong>My pyari Jasuu Masii</strong> ❤️
+   </p>
+   <p>
+    Your smile, your warmth, and the beautiful person you are deserve
+    all the happiness in the world. May Krishna always guide your way,
+    protect you from every difficulty, and keep that beautiful smile on your face.
+   </p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div class="title">
+   <div class="ornament">🦚</div>
+   <h2>Little Moments of Jasuu</h2>
+   <p>A few beautiful moments, saved here like little memories in a Janmashtami diary.</p>
+  </div>
+  <div class="gallery">
+   <figure class="photo"><img src="images/jasuu-1.jpg" alt="Jasuu Masii"><figcaption>✨ A little sparkle</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-2.jpg" alt="Jasuu Masii"><figcaption>🪷 Grace in every detail</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-3.jpg" alt="Jasuu Masii"><figcaption>💙 A peaceful smile</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-4.jpg" alt="Jasuu Masii"><figcaption>🌸 Festive vibes</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-5.jpg" alt="Jasuu Masii"><figcaption>🦚 Kanha-inspired beauty</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-6.jpg" alt="Jasuu Masii"><figcaption>✨ Just being you</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-7.jpg" alt="Jasuu Masii"><figcaption>🌙 A moment worth keeping</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-8.jpg" alt="Jasuu Masii"><figcaption>🪔 Festive glow</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-9.jpg" alt="Jasuu Masii"><figcaption>🌺 Beautifully traditional</figcaption></figure>
+   <figure class="photo"><img src="images/jasuu-10.jpg" alt="Jasuu Masii"><figcaption>❤️ One for the memory book</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container wish-wrap">
+  <div class="title">
+   <div class="ornament">🪔</div>
+   <h2>Make a Wish to Kanha</h2>
+   <p>Close your eyes for a moment, think of your wish, and write it here.</p>
+  </div>
+  <div class="glass wish-box">
+   <textarea class="wish-input" id="wish" placeholder="Dear Kanha, my wish is..."></textarea>
+   <br>
+   <button class="cta reveal-btn" id="wishBtn">Light My Diya 🪔</button>
+   <div class="wish-result" id="wishResult">
+    🪔 Your wish has been placed beneath the stars.<br><br>
+    <strong>May Kanha hear what your heart quietly asks for. 💙</strong>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="blessing">
+ <div class="container blessing-card">
+  <div class="peacock">🦚</div>
+  <div class="kicker">A final blessing</div>
+  <h2>For Jasuu Masii</h2>
+  <p>
+   May Krishna fill your life with love, laughter and peace.
+   May every difficult road become easier, every dream find its way to you,
+   and may your beautiful smile never lose its glow.
+  </p>
+  <div class="kicker">Happy Janmashtami 💙</div>
+  <p class="script">Jai Kanhaiya Lal Ki 🙏</p>
+ </div>
+</section>
+</main>
+
+<footer class="footer">
+ Made with ❤️ specially for <b>Jasuu Masii</b> · Janmashtami 🦚
+</footer>
+
+<button class="music" id="musicBtn" aria-label="Toggle divine ambience">🪈</button>
+<div id="toast">Divine ambience on ✨</div>
+
+<script>
+const intro=document.getElementById('intro');
+const openBtn=document.getElementById('openBtn');
+const musicBtn=document.getElementById('musicBtn');
+const toast=document.getElementById('toast');
+let audioCtx=null, playing=false, timer=null;
+
+function spawn(){
+  const petals=document.getElementById('petals'), feathers=document.getElementById('feathers');
+  for(let i=0;i<18;i++){
+    const s=document.createElement('span');
+    s.textContent=['🌸','🌼','🪷'][Math.floor(Math.random()*3)];
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(7+Math.random()*8)+'s';
+    s.style.animationDelay=(Math.random()*8)+'s';
+    s.style.setProperty('--drift',(Math.random()*220-110)+'px');
+    petals.appendChild(s);
+  }
+  for(let i=0;i<8;i++){
+    const s=document.createElement('span');
+    s.textContent='🦚';
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(10+Math.random()*9)+'s';
+    s.style.animationDelay=(Math.random()*10)+'s';
+    s.style.setProperty('--drift',(Math.random()*300-150)+'px');
+    feathers.appendChild(s);
+  }
+}
+spawn();
+
+openBtn.addEventListener('click',()=>{
+  intro.classList.add('hide');
+  document.body.classList.remove('locked');
+  startAmbient();
+  setTimeout(()=>document.querySelector('.hero').scrollIntoView({behavior:'smooth'}),450);
+});
+
+function startAmbient(){
+  if(playing) return;
+  try{
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    const master=audioCtx.createGain(); master.gain.value=.045; master.connect(audioCtx.destination);
+    const notes=[261.63,293.66,329.63,392,440,523.25];
+    let n=0;
+    timer=setInterval(()=>{
+      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+      o.type='sine'; o.frequency.value=notes[n++%notes.length];
+      g.gain.setValueAtTime(0,audioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(.18,audioCtx.currentTime+.08);
+      g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+1.8);
+      o.connect(g);g.connect(master);o.start();o.stop(audioCtx.currentTime+1.9);
+    },1200);
+    playing=true; musicBtn.textContent='🔊';
+  }catch(e){}
+}
+function stopAmbient(){
+  if(timer) clearInterval(timer);
+  timer=null;
+  if(audioCtx){audioCtx.close();audioCtx=null}
+  playing=false;musicBtn.textContent='🪈';
+}
+musicBtn.addEventListener('click',()=>{
+  if(playing){stopAmbient();showToast('Divine ambience off')}
+  else{startAmbient();showToast('Divine ambience on ✨')}
+});
+function showToast(t){
+ toast.textContent=t;toast.classList.add('show');
+ setTimeout(()=>toast.classList.remove('show'),1800);
+}
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.12});
+document.querySelectorAll('.photo').forEach(p=>observer.observe(p));
+
+document.getElementById('wishBtn').addEventListener('click',()=>{
+ const box=document.getElementById('wish'), result=document.getElementById('wishResult');
+ if(!box.value.trim()){box.focus();showToast('First write your little wish 🪷');return}
+ result.classList.add('show');
+ for(let i=0;i<16;i++){
+   const s=document.createElement('span');s.textContent='✨';
+   s.style.position='fixed';s.style.left=(35+Math.random()*30)+'%';s.style.top='55%';
+   s.style.zIndex=40;s.style.fontSize=(12+Math.random()*20)+'px';
+   document.body.appendChild(s);
+   s.animate([{transform:'translate(0,0) scale(.5)',opacity:1},{transform:`translate(${Math.random()*240-120}px,${-100-Math.random()*180}px) scale(1.3)`,opacity:0}],{duration:1200+Math.random()*700,easing:'ease-out'}).onfinish=()=>s.remove();
+ }
+});
+</script>
+</body>
+</html>
