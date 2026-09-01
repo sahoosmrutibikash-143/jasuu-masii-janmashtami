@@ -282,6 +282,9 @@ const openBtn=document.getElementById('openBtn');
 const musicBtn=document.getElementById('musicBtn');
 const toast=document.getElementById('toast');
 let audioCtx=null, playing=false, timer=null;
+const bgMusic = new Audio('music/janmashtami-song.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.7;
 
 function spawn(){
   const petals=document.getElementById('petals'), feathers=document.getElementById('feathers');
@@ -314,22 +317,18 @@ openBtn.addEventListener('click',()=>{
 });
 
 function startAmbient(){
-  if(playing) return;
-  try{
-    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    const master=audioCtx.createGain(); master.gain.value=.045; master.connect(audioCtx.destination);
-    const notes=[261.63,293.66,329.63,392,440,523.25];
-    let n=0;
-    timer=setInterval(()=>{
-      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
-      o.type='sine'; o.frequency.value=notes[n++%notes.length];
-      g.gain.setValueAtTime(0,audioCtx.currentTime);
-      g.gain.linearRampToValueAtTime(.18,audioCtx.currentTime+.08);
-      g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+1.8);
-      o.connect(g);g.connect(master);o.start();o.stop(audioCtx.currentTime+1.9);
-    },1200);
-    playing=true; musicBtn.textContent='🔊';
-  }catch(e){}
+    if(playing) return;
+    bgMusic.play().then(()=>{
+        playing=true;
+        musicBtn.textContent='🔊';
+    }).catch(()=>{});
+}
+
+function stopAmbient(){
+    bgMusic.pause();
+    bgMusic.currentTime=0;
+    playing=false;
+    musicBtn.textContent='🔇';
 }
 function stopAmbient(){
   if(timer) clearInterval(timer);
